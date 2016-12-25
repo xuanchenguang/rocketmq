@@ -20,8 +20,5 @@ package org.apache.openmessaging;
 /**
  * @author vintagewang@apache.org
  */
-public interface Message {
-    void start();
-
-    void shutdown();
+public class Message {
 }
