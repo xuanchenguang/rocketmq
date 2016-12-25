@@ -17,8 +17,37 @@
 package org.apache.openmessaging;
 
 
+import java.util.Map;
+
 /**
  * @author vintagewang@apache.org
  */
 public class Message {
+    private Map<String, String> header;
+    private Map<String, String> properties;
+    private byte[] body;
+
+    public Map<String, String> getHeader() {
+        return header;
+    }
+
+    public void setHeader(final Map<String, String> header) {
+        this.header = header;
+    }
+
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(final Map<String, String> properties) {
+        this.properties = properties;
+    }
+
+    public byte[] getBody() {
+        return body;
+    }
+
+    public void setBody(final byte[] body) {
+        this.body = body;
+    }
 }
