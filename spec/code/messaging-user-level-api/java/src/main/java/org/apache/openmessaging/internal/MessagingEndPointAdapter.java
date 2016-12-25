@@ -28,7 +28,6 @@ import java.util.Properties;
 
 /**
  * @author vintagewang@apache.org
- * @since 2016-12-25
  */
 class MessagingEndPointAdapter {
     private static Map<String, String> serviceEndPointClassMap = new HashMap<String, String>();

@@ -26,7 +26,6 @@ import java.util.Properties;
 
 /**
  * @author vintagewang@apache.org
- * @since 2016-12-25
  */
 public class MessagingEndPointFactory {
     public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties)

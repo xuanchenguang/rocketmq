@@ -19,7 +19,6 @@ package org.apache.openmessaging.wireapi.broker;
 
 /**
  * @author vintagewang@apache.org
- * @since 2016-12-25
  */
 public class SendOrderRequest {
     private Message message;

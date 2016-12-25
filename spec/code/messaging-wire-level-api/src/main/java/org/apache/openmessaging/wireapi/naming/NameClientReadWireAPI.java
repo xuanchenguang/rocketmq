@@ -17,5 +17,8 @@
 
 package org.apache.openmessaging.wireapi.naming;
 
+/**
+ * @author vintagewang@apache.org
+ */
 public interface NameClientReadWireAPI {
 }

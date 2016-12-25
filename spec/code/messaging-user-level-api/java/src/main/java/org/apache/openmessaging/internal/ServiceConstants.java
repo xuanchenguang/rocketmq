@@ -19,7 +19,6 @@ package org.apache.openmessaging.internal;
 
 /**
  * @author vintagewang@apache.org
- * @since 2016-12-25
  */
 class ServiceConstants {
     public static final String PROTOCOL_NAME = "protocol";

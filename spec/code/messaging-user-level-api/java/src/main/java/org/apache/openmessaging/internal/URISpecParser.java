@@ -25,7 +25,6 @@ import java.util.Map;
 
 /**
  * @author vintagewang@apache.org
- * @since 2016-12-25
  */
 public class URISpecParser {
     public static Map<String, List<String>> parseURI(String uri) {

@@ -17,6 +17,9 @@
 
 package org.apache.openmessaging.wireapi.consumer;
 
+/**
+ * @author vintagewang@apache.org
+ */
 public interface ConsumerSelfWireAPI {
     void forward();
 }
