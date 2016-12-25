@@ -22,4 +22,13 @@ package org.apache.openmessaging;
  * @since 2016-12-25
  */
 public interface MessagingEndPoint {
+    void start();
+
+    void shutdown();
+
+    Producer createProducer();
+
+    PushConsumer createPushConsumer();
+
+    PullConsumer createPullConsumer();
 }

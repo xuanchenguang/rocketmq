@@ -26,6 +26,4 @@ public interface Producer {
     void shutdown();
 
     void send(final Message message);
-
-
 }

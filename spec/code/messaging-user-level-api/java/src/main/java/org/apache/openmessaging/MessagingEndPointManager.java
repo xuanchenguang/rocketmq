@@ -38,6 +38,6 @@ public class MessagingEndPointManager {
         if (null == driverUrl || driverUrl.size() == 0) {
             throw new IllegalArgumentException("driver url parsed result.size ==0");
         }
-        return MessagingEndPointFactory.createServiceEndPoint(driverUrl, properties);
+        return MessagingEndPointFactory.createMessagingEndPoint(driverUrl, properties);
     }
 }

@@ -24,15 +24,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-
+/**
+ * @author vintagewang@apache.org
+ * @since 2016-12-25
+ */
 public class MessagingEndPointFactory {
-    public static MessagingEndPoint createServiceEndPoint(Map<String, List<String>> url, Properties properties)
+    public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
         List<String> driver = url.get(ServiceConstants.SPI_NAME);
         List<String> urls = url.get(ServiceConstants.URL_NAME);
         if (urls != null && urls.size() > 0)
             properties.put(ServiceConstants.URL, urls.get(0));
-        return ServiceEndPointAdapter.instantiateServiceEndPoint(driver.get(0), properties);
+        return MessagingEndPointAdapter.instantiateMessagingEndPoint(driver.get(0), properties);
     }
 }

@@ -26,8 +26,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-
-public class ServiceEndPointAdapter {
+/**
+ * @author vintagewang@apache.org
+ * @since 2016-12-25
+ */
+class MessagingEndPointAdapter {
     private static Map<String, String> serviceEndPointClassMap = new HashMap<String, String>();
 
     static {
@@ -35,7 +38,7 @@ public class ServiceEndPointAdapter {
                 ServiceConstants.DEFAULT_SERVICE_IMPL);
     }
 
-    static MessagingEndPoint instantiateServiceEndPoint(String url, Properties properties)
+    static MessagingEndPoint instantiateMessagingEndPoint(String url, Properties properties)
             throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException,
             InvocationTargetException, InstantiationException {
         String serviceImpl = ServiceConstants.DEFAULT_SERVICE_IMPL;
