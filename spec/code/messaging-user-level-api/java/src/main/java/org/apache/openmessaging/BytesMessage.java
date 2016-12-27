@@ -14,18 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.openmessaging;
 
+package org.apache.openmessaging;
 
 /**
  * @author vintagewang@apache.org
  */
-public interface Message {
-    Message putHeader(final String name, final String value);
+public interface BytesMessage extends Message {
+    byte[] getBody();
 
-    Message putProperty(final String name, final String value);
-
-    String getHeader(final String name);
-
-    String getProperty(final String name);
+    void setBody(final byte[] body);
 }
