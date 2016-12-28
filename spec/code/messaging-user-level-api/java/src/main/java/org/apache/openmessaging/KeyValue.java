@@ -17,10 +17,16 @@
 package org.apache.openmessaging;
 
 
-public interface Producer extends MessageFactory {
-    void start();
+public interface KeyValue {
+    KeyValue put(final String key, final int value);
 
-    void shutdown();
+    KeyValue put(final String key, final long value);
 
-    void send(final BytesMessage message);
+    KeyValue put(final String key, final String value);
+
+    int getInt(final String key);
+
+    long getLong(final String key);
+
+    String getString(final String key);
 }

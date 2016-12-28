@@ -36,4 +36,8 @@ public class MessagingEndPointManager {
         }
         return MessagingEndPointFactory.createMessagingEndPoint(driverUrl, properties);
     }
+
+    public static KeyValue buildKeyValue() {
+        return null;
+    }
 }

@@ -18,6 +18,18 @@ package org.apache.openmessaging;
 
 
 public interface BytesMessage extends Message {
+    BytesMessage putHeader(final String key, final int value);
+
+    BytesMessage putHeader(final String key, final long value);
+
+    BytesMessage putHeader(final String key, final String value);
+
+    BytesMessage putProperties(final String key, final int value);
+
+    BytesMessage putProperties(final String key, final long value);
+
+    BytesMessage putProperties(final String key, final String value);
+
     byte[] getBody();
 
     void setBody(final byte[] body);

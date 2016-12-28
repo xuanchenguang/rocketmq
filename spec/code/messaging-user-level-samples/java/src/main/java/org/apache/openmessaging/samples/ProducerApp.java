@@ -30,8 +30,10 @@ public class ProducerApp {
         final Producer producer = messagingEndPoint.createProducer();
 
         messagingEndPoint.start();
+        System.out.println("messagingEndPoint startup OK");
 
         producer.start();
+        System.out.println("producer startup OK");
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
@@ -45,9 +47,9 @@ public class ProducerApp {
         System.out.println("send first message OK");
 
         producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8")))
-                .putProperty("KEY1", "value1")//
-                .putProperty("KEY2", "value2")//
-                .putProperty("KEY3", "value3")//
+                .putProperties("KEY1", "value1")//
+                .putProperties("KEY2", "value2")//
+                .putProperties("KEY3", "value3")//
         );
         System.out.println("send second message OK");
     }

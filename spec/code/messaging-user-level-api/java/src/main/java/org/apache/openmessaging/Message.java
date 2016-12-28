@@ -18,11 +18,7 @@ package org.apache.openmessaging;
 
 
 public interface Message {
-    Message putHeader(final String name, final String value);
+    KeyValue headers();
 
-    Message putProperty(final String name, final String value);
-
-    String getHeader(final String name);
-
-    String getProperty(final String name);
+    KeyValue properties();
 }
