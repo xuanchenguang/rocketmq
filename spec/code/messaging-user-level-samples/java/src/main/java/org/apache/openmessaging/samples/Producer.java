@@ -28,14 +28,17 @@ public class Producer {
 
         final org.apache.openmessaging.Producer producer = messagingEndPoint.createProducer();
 
+        messagingEndPoint.start();
+
         producer.start();
 
-        producer.send(messagingEndPoint.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
                 producer.shutdown();
+                messagingEndPoint.shutdown();
             }
         }));
     }

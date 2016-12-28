@@ -17,14 +17,6 @@
 package org.apache.openmessaging;
 
 
-public interface MessagingEndPoint {
-    void start();
-
-    void shutdown();
-
-    Producer createProducer();
-
-    PushConsumer createPushConsumer();
-
-    PullConsumer createPullConsumer();
+public interface MessageFactory {
+    BytesMessage createBytesMessage(final String topic, final byte[] body);
 }

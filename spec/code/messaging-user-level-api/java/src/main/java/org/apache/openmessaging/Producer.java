@@ -17,7 +17,7 @@
 package org.apache.openmessaging;
 
 
-public interface Producer {
+public interface Producer extends MessageFactory {
     void start();
 
     void shutdown();
