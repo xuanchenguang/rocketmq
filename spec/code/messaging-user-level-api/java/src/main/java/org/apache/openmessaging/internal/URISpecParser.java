@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.internal;
 
 import java.util.ArrayList;
@@ -23,9 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public class URISpecParser {
     public static Map<String, List<String>> parseURI(String uri) {
         if (uri == null || uri.length() == 0) {

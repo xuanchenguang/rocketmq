@@ -14,12 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.wireapi.broker;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public class SendBatchRequest {
     private Message message;
 }

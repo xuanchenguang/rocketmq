@@ -14,15 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.wireapi.broker;
 
 
 import java.util.Map;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public class Message {
     private Map<String, String> systemHeader;
     private Map<String, String> userHeader;

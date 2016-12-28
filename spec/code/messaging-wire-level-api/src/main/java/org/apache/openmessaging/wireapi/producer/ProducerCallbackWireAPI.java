@@ -14,14 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.wireapi.producer;
 
 import org.apache.openmessaging.wireapi.client.ClientCallbackWireAPI;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public interface ProducerCallbackWireAPI extends ClientCallbackWireAPI {
     void checkTransactionState();
 }

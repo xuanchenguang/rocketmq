@@ -17,9 +17,6 @@
 package org.apache.openmessaging;
 
 
-/**
- * @author vintagewang@apache.org
- */
 public interface Message {
     Message putHeader(final String name, final String value);
 

@@ -14,12 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.internal;
 
-/**
- * @author vintagewang@apache.org
- */
+
 class ServiceConstants {
     public static final String PROTOCOL_NAME = "protocol";
     public static final String SPI_NAME = "spi";

@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.internal;
 
 
@@ -26,9 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-/**
- * @author vintagewang@apache.org
- */
+
 class MessagingEndPointAdapter {
     private static Map<String, String> serviceEndPointClassMap = new HashMap<String, String>();
 

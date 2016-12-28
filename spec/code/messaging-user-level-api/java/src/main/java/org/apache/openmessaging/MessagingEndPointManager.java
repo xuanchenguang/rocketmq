@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging;
 
 import org.apache.openmessaging.internal.MessagingEndPointFactory;
@@ -24,9 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public class MessagingEndPointManager {
     public static MessagingEndPoint getMessagingEndPoint(String url) {
         return getMessagingEndPoint(url, new Properties());

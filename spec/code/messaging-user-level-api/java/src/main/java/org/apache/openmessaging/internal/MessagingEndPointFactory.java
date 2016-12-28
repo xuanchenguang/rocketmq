@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.openmessaging.internal;
 
 import org.apache.openmessaging.MessagingEndPoint;
@@ -23,9 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public class MessagingEndPointFactory {
     public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties) {
         List<String> driver = url.get(ServiceConstants.SPI_NAME);

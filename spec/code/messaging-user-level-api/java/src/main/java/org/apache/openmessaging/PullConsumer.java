@@ -16,9 +16,7 @@
  */
 package org.apache.openmessaging;
 
-/**
- * @author vintagewang@apache.org
- */
+
 public interface PullConsumer {
 
 }
