@@ -22,11 +22,15 @@ public interface KeyValue {
 
     KeyValue put(final String key, final long value);
 
+    KeyValue put(final String key, final double value);
+
     KeyValue put(final String key, final String value);
 
     int getInt(final String key);
 
     long getLong(final String key);
+
+    double getDouble(final String key);
 
     String getString(final String key);
 }
