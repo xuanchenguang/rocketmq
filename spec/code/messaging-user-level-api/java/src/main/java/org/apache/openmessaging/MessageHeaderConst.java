@@ -28,4 +28,6 @@ public class MessageHeaderConst {
     public static final String OMSTimeout = "OMSTimeout";
     public static final String OMSPriority = "OMSPriority";
     public static final String OMSReliability = "OMSReliability";
+    public static final String OMSSearchKey = "OMSSearchKey";
+    public static final String OMSMsgId = "OMSMsgId";
 }
