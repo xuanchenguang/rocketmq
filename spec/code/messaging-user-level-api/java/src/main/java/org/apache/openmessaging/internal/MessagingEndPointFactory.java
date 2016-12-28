@@ -19,7 +19,6 @@ package org.apache.openmessaging.internal;
 
 import org.apache.openmessaging.MessagingEndPoint;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -28,13 +27,15 @@ import java.util.Properties;
  * @author vintagewang@apache.org
  */
 public class MessagingEndPointFactory {
-    public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties)
-            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
+    public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties) {
         List<String> driver = url.get(ServiceConstants.SPI_NAME);
         List<String> urls = url.get(ServiceConstants.URL_NAME);
         if (urls != null && urls.size() > 0)
             properties.put(ServiceConstants.URL, urls.get(0));
-        return MessagingEndPointAdapter.instantiateMessagingEndPoint(driver.get(0), properties);
+        try {
+            return MessagingEndPointAdapter.instantiateMessagingEndPoint(driver.get(0), properties);
+        } catch (Exception e) {
+            throw new RuntimeException("createMessagingEndPoint exception", e);
+        }
     }
 }

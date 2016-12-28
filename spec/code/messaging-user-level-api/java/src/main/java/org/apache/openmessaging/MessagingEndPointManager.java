@@ -28,11 +28,11 @@ import java.util.Properties;
  * @author vintagewang@apache.org
  */
 public class MessagingEndPointManager {
-    public static MessagingEndPoint getMessagingEndPoint(String url) throws Exception {
+    public static MessagingEndPoint getMessagingEndPoint(String url) {
         return getMessagingEndPoint(url, new Properties());
     }
 
-    public static MessagingEndPoint getMessagingEndPoint(String url, Properties properties) throws Exception {
+    public static MessagingEndPoint getMessagingEndPoint(String url, Properties properties) {
         Map<String, List<String>> driverUrl = URISpecParser.parseURI(url);
         if (null == driverUrl || driverUrl.size() == 0) {
             throw new IllegalArgumentException("driver url parsed result.size ==0");

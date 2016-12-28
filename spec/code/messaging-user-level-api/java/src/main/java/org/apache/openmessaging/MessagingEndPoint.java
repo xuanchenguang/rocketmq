@@ -30,4 +30,6 @@ public interface MessagingEndPoint {
     PushConsumer createPushConsumer();
 
     PullConsumer createPullConsumer();
+
+    BytesMessage createBytesMessage(final String topic, final byte[] body);
 }

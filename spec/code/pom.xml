@@ -11,6 +11,7 @@
 
     <modules>
         <module>messaging-user-level-api/java</module>
+        <module>messaging-user-level-samples/java</module>
         <module>messaging-wire-level-api</module>
     </modules>
 
@@ -84,6 +85,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>messaging-user-level-samples</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>messaging-user-level-api</artifactId>
