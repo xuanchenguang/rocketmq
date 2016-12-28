@@ -21,20 +21,19 @@ import org.apache.openmessaging.internal.URISpecParser;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 
 public class MessagingEndPointManager {
     public static MessagingEndPoint getMessagingEndPoint(String url) {
-        return getMessagingEndPoint(url, new Properties());
+        return getMessagingEndPoint(url, null);
     }
 
-    public static MessagingEndPoint getMessagingEndPoint(String url, Properties properties) {
+    public static MessagingEndPoint getMessagingEndPoint(String url, KeyValue properties) {
         Map<String, List<String>> driverUrl = URISpecParser.parseURI(url);
         if (null == driverUrl || driverUrl.size() == 0) {
             throw new IllegalArgumentException("driver url parsed result.size ==0");
         }
-        return MessagingEndPointFactory.createMessagingEndPoint(driverUrl, properties);
+        return MessagingEndPointFactory.createMessagingEndPoint(driverUrl, null);
     }
 
     public static KeyValue buildKeyValue() {

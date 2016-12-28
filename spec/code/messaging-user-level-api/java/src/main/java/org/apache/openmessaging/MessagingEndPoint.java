@@ -24,7 +24,13 @@ public interface MessagingEndPoint {
 
     Producer createProducer();
 
+    Producer createProducer(final KeyValue properties);
+
     PushConsumer createPushConsumer();
 
+    PushConsumer createPushConsumer(final KeyValue properties);
+
     PullConsumer createPullConsumer();
+
+    PullConsumer createPullConsumer(final KeyValue properties);
 }
