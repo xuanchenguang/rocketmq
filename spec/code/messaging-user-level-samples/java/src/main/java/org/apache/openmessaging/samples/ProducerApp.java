@@ -19,14 +19,15 @@ package org.apache.openmessaging.samples;
 
 import org.apache.openmessaging.MessagingEndPoint;
 import org.apache.openmessaging.MessagingEndPointManager;
+import org.apache.openmessaging.Producer;
 
 import java.nio.charset.Charset;
 
-public class Producer {
+public class ProducerApp {
     public static void main(String[] args) {
         final MessagingEndPoint messagingEndPoint = MessagingEndPointManager.getMessagingEndPoint("openmessaging:rocketmq://localhost:10911/namespace");
 
-        final org.apache.openmessaging.Producer producer = messagingEndPoint.createProducer();
+        final Producer producer = messagingEndPoint.createProducer();
 
         messagingEndPoint.start();
 
