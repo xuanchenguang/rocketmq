@@ -33,8 +33,6 @@ public class ProducerApp {
 
         producer.start();
 
-        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
-
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
@@ -42,5 +40,15 @@ public class ProducerApp {
                 messagingEndPoint.shutdown();
             }
         }));
+
+        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+        System.out.println("send first message OK");
+
+        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8")))
+                .putProperty("KEY1", "value1")//
+                .putProperty("KEY2", "value2")//
+                .putProperty("KEY3", "value3")//
+        );
+        System.out.println("send second message OK");
     }
 }
