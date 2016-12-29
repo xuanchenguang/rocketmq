@@ -16,27 +16,24 @@
  */
 package org.apache.openmessaging.internal;
 
-
-import org.apache.openmessaging.MessagingEndPoint;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
+import org.apache.openmessaging.MessagingEndPoint;
 
 class MessagingEndPointAdapter {
     private static Map<String, String> serviceEndPointClassMap = new HashMap<String, String>();
 
     static {
         serviceEndPointClassMap.put(ServiceConstants.DEFAULT_SERVICE_END_POINT,
-                ServiceConstants.DEFAULT_SERVICE_IMPL);
+            ServiceConstants.DEFAULT_SERVICE_IMPL);
     }
 
     static MessagingEndPoint instantiateMessagingEndPoint(String url, Properties properties)
-            throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException,
-            InvocationTargetException, InstantiationException {
+        throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException,
+        InvocationTargetException, InstantiationException {
         String serviceImpl = ServiceConstants.DEFAULT_SERVICE_IMPL;
         if (serviceEndPointClassMap.containsKey(url))
             serviceImpl = serviceEndPointClassMap.get(url);
@@ -46,7 +43,7 @@ class MessagingEndPointAdapter {
 
         String serviceUrl = ServiceConstants.DEFAULT_SERVICE_DISCOVERY_URL;
         if (properties.get(ServiceConstants.URL) != null) {
-            String[] propertySplits = ((String) properties.get(ServiceConstants.URL)).split(ServiceConstants.PARAM_SEPARATOR);
+            String[] propertySplits = ((String)properties.get(ServiceConstants.URL)).split(ServiceConstants.PARAM_SEPARATOR);
             if (propertySplits.length > 0) {
                 serviceUrl = propertySplits[0];
                 for (int index = 1; index < propertySplits.length; index++) {
@@ -60,6 +57,6 @@ class MessagingEndPointAdapter {
         Class[] paramTypes = {Properties.class};
         Constructor constructor = serviceEndPointClass.getConstructor(paramTypes);
         assert constructor != null;
-        return (MessagingEndPoint) constructor.newInstance(properties);
+        return (MessagingEndPoint)constructor.newInstance(properties);
     }
 }

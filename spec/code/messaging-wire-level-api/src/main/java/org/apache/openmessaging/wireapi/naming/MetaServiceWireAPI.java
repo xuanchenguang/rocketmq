@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.naming;
 
-
 public interface MetaServiceWireAPI {
     void createTopic();
 

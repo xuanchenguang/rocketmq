@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.broker;
 
-
 public class SendOneRequest {
     private Session session;
     private Message message;

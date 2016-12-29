@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.broker;
 
-
 public interface BrokerConsumeWireAPI {
     Session connect(ConnectRequest request);
 

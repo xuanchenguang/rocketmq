@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging;
 
-
 public interface MessageFactory {
     BytesMessage createBytesMessage(final String topic, final byte[] body);
 }

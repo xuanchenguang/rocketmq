@@ -18,7 +18,6 @@ package org.apache.openmessaging.wireapi.consumer;
 
 import org.apache.openmessaging.wireapi.client.ClientCallbackWireAPI;
 
-
 public interface ConsumerCallbackWireAPI extends ClientCallbackWireAPI {
     void push();
 }

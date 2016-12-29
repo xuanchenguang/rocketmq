@@ -18,7 +18,6 @@ package org.apache.openmessaging.wireapi.producer;
 
 import org.apache.openmessaging.wireapi.client.ClientCallbackWireAPI;
 
-
 public interface ProducerCallbackWireAPI extends ClientCallbackWireAPI {
     void checkTransactionState();
 }

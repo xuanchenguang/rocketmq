@@ -16,12 +16,10 @@
  */
 package org.apache.openmessaging;
 
-import org.apache.openmessaging.internal.MessagingEndPointFactory;
-import org.apache.openmessaging.internal.URISpecParser;
-
 import java.util.List;
 import java.util.Map;
-
+import org.apache.openmessaging.internal.MessagingEndPointFactory;
+import org.apache.openmessaging.internal.URISpecParser;
 
 public class MessagingEndPointManager {
     public static MessagingEndPoint getMessagingEndPoint(String url) {

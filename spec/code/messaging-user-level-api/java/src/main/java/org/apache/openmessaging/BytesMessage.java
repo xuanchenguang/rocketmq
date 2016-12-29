@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging;
 
-
 public interface BytesMessage extends Message {
     BytesMessage putHeader(final String key, final int value);
 

@@ -16,6 +16,5 @@
  */
 package org.apache.openmessaging.wireapi.naming;
 
-
 public interface NameClientWriteWireAPI {
 }

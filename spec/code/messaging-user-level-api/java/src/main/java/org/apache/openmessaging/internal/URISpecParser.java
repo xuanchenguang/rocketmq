@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class URISpecParser {
     public static Map<String, List<String>> parseURI(String uri) {
         if (uri == null || uri.length() == 0) {
@@ -41,7 +40,8 @@ public class URISpecParser {
             spiIndex = uri.indexOf(ServiceConstants.URL_SEPARATOR, index + 1);
             if (spiIndex > 0) {
                 spi = uri.substring(index + 1, spiIndex);
-            } else {
+            }
+            else {
                 spi = uri.substring(index + 1);
             }
             List<String> spiSet = new ArrayList<String>();

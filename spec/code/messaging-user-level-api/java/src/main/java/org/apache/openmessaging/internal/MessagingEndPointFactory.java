@@ -16,12 +16,10 @@
  */
 package org.apache.openmessaging.internal;
 
-import org.apache.openmessaging.MessagingEndPoint;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
+import org.apache.openmessaging.MessagingEndPoint;
 
 public class MessagingEndPointFactory {
     public static MessagingEndPoint createMessagingEndPoint(Map<String, List<String>> url, Properties properties) {
@@ -31,7 +29,8 @@ public class MessagingEndPointFactory {
             properties.put(ServiceConstants.URL, urls.get(0));
         try {
             return MessagingEndPointAdapter.instantiateMessagingEndPoint(driver.get(0), properties);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             throw new RuntimeException("createMessagingEndPoint exception", e);
         }
     }

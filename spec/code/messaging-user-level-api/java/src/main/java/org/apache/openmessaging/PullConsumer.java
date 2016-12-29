@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging;
 
-
 public interface PullConsumer {
 
 }

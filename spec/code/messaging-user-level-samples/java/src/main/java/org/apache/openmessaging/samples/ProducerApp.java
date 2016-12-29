@@ -16,12 +16,10 @@
  */
 package org.apache.openmessaging.samples;
 
-
+import java.nio.charset.Charset;
 import org.apache.openmessaging.MessagingEndPoint;
 import org.apache.openmessaging.MessagingEndPointManager;
 import org.apache.openmessaging.Producer;
-
-import java.nio.charset.Charset;
 
 public class ProducerApp {
     public static void main(String[] args) {
@@ -47,10 +45,10 @@ public class ProducerApp {
         System.out.println("send first message OK");
 
         producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8")))
-                .putProperties("KEY1", 100)//
-                .putProperties("KEY2", 200L)//
-                .putProperties("KEY3", 3.14)//
-                .putProperties("KEY4", "value4")//
+            .putProperties("KEY1", 100)//
+            .putProperties("KEY2", 200L)//
+            .putProperties("KEY3", 3.14)//
+            .putProperties("KEY4", "value4")//
         );
         System.out.println("send second message OK");
     }

@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.internal;
 
-
 class ServiceConstants {
     public static final String PROTOCOL_NAME = "protocol";
     public static final String SPI_NAME = "spi";

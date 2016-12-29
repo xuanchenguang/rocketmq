@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.broker;
 
-
 public class ConnectRequest {
     private String localHostIP;
     private String authKey;

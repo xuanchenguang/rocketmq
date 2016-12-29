@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.consumer;
 
-
 public interface ConsumerSelfWireAPI {
     void forward();
 }

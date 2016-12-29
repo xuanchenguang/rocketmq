@@ -16,6 +16,5 @@
  */
 package org.apache.openmessaging.wireapi.broker;
 
-
 public interface BrokerAdminWireAPI {
 }

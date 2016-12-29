@@ -16,9 +16,7 @@
  */
 package org.apache.openmessaging.wireapi.broker;
 
-
 import java.util.Map;
-
 
 public class Message {
     private Map<String, String> systemHeader;

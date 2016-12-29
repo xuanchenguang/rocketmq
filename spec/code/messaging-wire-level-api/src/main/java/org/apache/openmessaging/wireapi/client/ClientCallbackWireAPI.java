@@ -16,7 +16,6 @@
  */
 package org.apache.openmessaging.wireapi.client;
 
-
 public interface ClientCallbackWireAPI {
     void ping();
 
