@@ -16,18 +16,17 @@
  */
 package org.apache.openmessaging;
 
-
-public class MessageHeaderConst {
-    public static final String OMSTopic = "OMSTopic";
-    public static final String OMSBornTimestamp = "OMSBornTimestamp";
-    public static final String OMSBornHost = "OMSBornHost";
-    public static final String OMSStoreTimestamp = "OMSStoreTimestamp";
-    public static final String OMSStoreHost = "OMSStoreHost";
-    public static final String OMSStartTime = "OMSStartTime";
-    public static final String OMSStopTime = "OMSStopTime";
-    public static final String OMSTimeout = "OMSTimeout";
-    public static final String OMSPriority = "OMSPriority";
-    public static final String OMSReliability = "OMSReliability";
-    public static final String OMSSearchKey = "OMSSearchKey";
-    public static final String OMSMsgId = "OMSMsgId";
+public class MessageHeader {
+    public static final String MessageId = "MessageId";
+    public static final String Topic = "Topic";
+    public static final String BornTimestamp = "BornTimestamp";
+    public static final String BornHost = "BornHost";
+    public static final String StoreTimestamp = "StoreTimestamp";
+    public static final String StoreHost = "StoreHost";
+    public static final String StartTime = "StartTime";
+    public static final String StopTime = "StopTime";
+    public static final String Timeout = "Timeout";
+    public static final String Priority = "Priority";
+    public static final String Reliability = "Reliability";
+    public static final String SearchKey = "SearchKey";
 }
