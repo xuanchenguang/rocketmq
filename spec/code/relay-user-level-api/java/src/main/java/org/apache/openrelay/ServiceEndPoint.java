@@ -16,7 +16,6 @@
  */
 package org.apache.openrelay;
 
-import java.util.Properties;
 import org.apache.openrelay.observer.Observer;
 
 public interface ServiceEndPoint extends ServiceLifecycle {
@@ -36,7 +35,7 @@ public interface ServiceEndPoint extends ServiceLifecycle {
      * @param properties the service published properties
      */
 
-    void publish(Object service, Properties properties);
+    void publish(Object service, KeyValue properties);
 
     /**
      * Bind a service object to serviceEndPoint, which can directly call services provided by service object
@@ -54,10 +53,10 @@ public interface ServiceEndPoint extends ServiceLifecycle {
      * @param <T> service proxy object to bind
      * @return service proxy object to bind
      */
-    <T> T bind(Class<T> type, Properties properties);
+    <T> T bind(Class<T> type, KeyValue properties);
 
     /**
-     * Like {@link #bind(Class, Properties)} but specifying {@code serviceLoadBalance} that can be used to select
+     * Like {@link #bind(Class, KeyValue)} but specifying {@code serviceLoadBalance} that can be used to select
      * endPoint target
      *
      * @param type service type to bind in serviceConsumer
@@ -66,7 +65,7 @@ public interface ServiceEndPoint extends ServiceLifecycle {
      * @param <T> service proxy object to bind
      * @return service proxy object to bind
      */
-    <T> T bind(Class<T> type, Properties properties, ServiceLoadBalance serviceLoadBalance);
+    <T> T bind(Class<T> type, KeyValue properties, ServiceLoadBalance serviceLoadBalance);
 
     /**
      * Register an observer in an serviceEndPoint object. Whenever serviceEndPoint object publish or bind an service
