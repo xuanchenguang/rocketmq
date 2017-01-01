@@ -16,14 +16,8 @@
  */
 package org.apache.openmessaging;
 
-public interface Producer extends MessageFactory {
-    void start();
+public interface PromiseListener<V> {
+    void operationComplete(Promise<V> promise);
 
-    void shutdown();
-
-    void send(final BytesMessage message);
-
-    Promise<Void> sendAsync(final BytesMessage message);
-
-    void sendOneway(final BytesMessage message);
+    void operationFailed(Promise<V> promise);
 }
