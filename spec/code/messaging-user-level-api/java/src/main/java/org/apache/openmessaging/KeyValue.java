@@ -16,6 +16,8 @@
  */
 package org.apache.openmessaging;
 
+import java.util.Set;
+
 public interface KeyValue {
     KeyValue put(final String key, final int value);
 
@@ -32,4 +34,6 @@ public interface KeyValue {
     double getDouble(final String key);
 
     String getString(final String key);
+
+    Set<String> keySet();
 }

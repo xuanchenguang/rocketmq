@@ -23,7 +23,13 @@ public interface Producer extends MessageFactory {
 
     void send(final BytesMessage message);
 
+    void send(final BytesMessage message, final KeyValue properties);
+
     Promise<Void> sendAsync(final BytesMessage message);
 
+    Promise<Void> sendAsync(final BytesMessage message, final KeyValue properties);
+
     void sendOneway(final BytesMessage message);
+
+    void sendOneway(final BytesMessage message, final KeyValue properties);
 }
