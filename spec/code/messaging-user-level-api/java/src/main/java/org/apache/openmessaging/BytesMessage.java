@@ -17,13 +17,13 @@
 package org.apache.openmessaging;
 
 public interface BytesMessage extends Message {
-    BytesMessage putHeader(final String key, final int value);
+    BytesMessage putHeaders(final String key, final int value);
 
-    BytesMessage putHeader(final String key, final long value);
+    BytesMessage putHeaders(final String key, final long value);
 
-    BytesMessage putHeader(final String key, final double value);
+    BytesMessage putHeaders(final String key, final double value);
 
-    BytesMessage putHeader(final String key, final String value);
+    BytesMessage putHeaders(final String key, final String value);
 
     BytesMessage putProperties(final String key, final int value);
 
