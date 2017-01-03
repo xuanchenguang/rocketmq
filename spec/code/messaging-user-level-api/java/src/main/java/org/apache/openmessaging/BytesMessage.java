@@ -35,5 +35,5 @@ public interface BytesMessage extends Message {
 
     byte[] getBody();
 
-    void setBody(final byte[] body);
+    BytesMessage setBody(final byte[] body);
 }
