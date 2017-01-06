@@ -25,7 +25,7 @@ public interface ResourceManager {
 
     void destroyNamespace(final String nsname);
 
-    void destroyTopic(final String nsname);
+    void destroyTopic(final String topicName);
 
-    void destroyQueue(final String nsname);
+    void destroyQueue(final String queueName);
 }
