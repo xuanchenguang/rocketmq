@@ -16,22 +16,10 @@
  */
 package org.apache.openmessaging;
 
-public interface MessagingEndPoint {
-    void start();
+public interface ResourceManager {
+    void createNamespace(final String nsname, KeyValue properties);
 
-    void shutdown();
+    void createTopic(final String topicName, KeyValue properties);
 
-    Producer createProducer();
-
-    Producer createProducer(final KeyValue properties);
-
-    PushConsumer createPushConsumer();
-
-    PushConsumer createPushConsumer(final KeyValue properties);
-
-    PullConsumer createPullConsumer();
-
-    PullConsumer createPullConsumer(final KeyValue properties);
-
-    ResourceManager createResourceManager();
+    void createQueue(final String queueName, KeyValue properties);
 }
