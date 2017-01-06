@@ -17,9 +17,15 @@
 package org.apache.openmessaging;
 
 public interface ResourceManager {
-    void createNamespace(final String nsname, KeyValue properties);
+    void createAndUpdateNamespace(final String nsname, KeyValue properties);
 
-    void createTopic(final String topicName, KeyValue properties);
+    void createAndUpdateTopic(final String topicName, KeyValue properties);
 
-    void createQueue(final String queueName, KeyValue properties);
+    void createAndUpdateQueue(final String queueName, KeyValue properties);
+
+    void destroyNamespace(final String nsname);
+
+    void destroyTopic(final String nsname);
+
+    void destroyQueue(final String nsname);
 }
