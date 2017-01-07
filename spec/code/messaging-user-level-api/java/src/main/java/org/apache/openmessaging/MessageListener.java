@@ -14,18 +14,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 package org.apache.openmessaging;
 
-public interface PushConsumer {
-    void start();
-
-    void shutdown();
-
-    void resume();
-
-    void suspend();
-
-    void attachQueue(final String queueName, final MessageListener listener);
-
-    void attachQueue(final String queueName, final Filters filters, final MessageListener listener);
+public interface MessageListener {
+    void onMessage(final Message message, final OnMessageContext context);
 }

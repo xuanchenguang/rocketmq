@@ -34,4 +34,6 @@ public interface MessagingEndPoint {
     PullConsumer createPullConsumer(final KeyValue properties);
 
     ResourceManager createResourceManager();
+
+    Filters createFilters();
 }

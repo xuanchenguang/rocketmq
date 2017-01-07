@@ -17,43 +17,40 @@
 
 package org.apache.openmessaging.samples.simple;
 
-import java.nio.charset.Charset;
+import org.apache.openmessaging.Message;
+import org.apache.openmessaging.MessageListener;
 import org.apache.openmessaging.MessagingEndPoint;
 import org.apache.openmessaging.MessagingEndPointManager;
-import org.apache.openmessaging.Producer;
+import org.apache.openmessaging.OnMessageContext;
+import org.apache.openmessaging.PushConsumer;
 
-public class ProducerApp {
+public class ConsumerTopicApp {
     public static void main(String[] args) {
         final MessagingEndPoint messagingEndPoint = MessagingEndPointManager.getMessagingEndPoint("openmessaging:rocketmq://localhost:10911/namespace");
 
-        final Producer producer = messagingEndPoint.createProducer();
+        final PushConsumer consumer = messagingEndPoint.createPushConsumer();
+
+        consumer.attachQueue("HELLO_QUEUE", messagingEndPoint.createFilters()//
+                .addFilter("TOPIC='HELLO_TOPIC1'")//
+                .addFilter("TOPIC='HELLO_TOPIC2' AND KEY2 > 199"),//
+            new MessageListener() {
+                @Override public void onMessage(Message message, OnMessageContext context) {
+                    System.out.println("receive one message: " + message);
+                }
+            });
 
         messagingEndPoint.start();
         System.out.println("messagingEndPoint startup OK");
 
-        producer.start();
-        System.out.println("producer startup OK");
+        consumer.start();
+        System.out.println("consumer startup OK");
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                producer.shutdown();
+                consumer.shutdown();
                 messagingEndPoint.shutdown();
             }
         }));
-
-        producer.send(producer.createBytesMessageToTopic("HELLO_TOPIC1", "HELLO_BODY1".getBytes(Charset.forName("UTF-8"))));
-        System.out.println("send first message to topic OK");
-
-        producer.send(producer.createBytesMessageToTopic("HELLO_TOPIC2", "HELLO_BODY2".getBytes(Charset.forName("UTF-8")))
-            .putProperties("KEY1", 100)//
-            .putProperties("KEY2", 200L)//
-            .putProperties("KEY3", 3.14)//
-            .putProperties("KEY4", "value4")//
-        );
-        System.out.println("send second message to topic OK");
-
-        producer.send(producer.createBytesMessageToQueue("HELLO_QUEUE", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
-        System.out.println("send third message to queue OK");
     }
 }
