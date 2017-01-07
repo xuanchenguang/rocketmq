@@ -44,13 +44,13 @@ public class ProducerApp {
         }));
 
         {
-            final Promise<Void> result = producer.sendAsync(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+            final Promise<Void> result = producer.sendAsync(producer.createBytesMessageToTopic("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
             final Void aVoid = result.get(3000L);
             System.out.println("send async message OK");
         }
 
         {
-            final Promise<Void> result = producer.sendAsync(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+            final Promise<Void> result = producer.sendAsync(producer.createBytesMessageToTopic("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
             result.addListener(new PromiseListener<Void>() {
                 @Override public void operationComplete(Promise<Void> promise) {
                     System.out.println("send async message OK");
@@ -65,7 +65,7 @@ public class ProducerApp {
         }
 
         {
-            producer.sendOneway(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+            producer.sendOneway(producer.createBytesMessageToTopic("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
             System.out.println("send oneway message OK");
         }
     }

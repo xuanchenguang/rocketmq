@@ -17,5 +17,7 @@
 package org.apache.openmessaging;
 
 public interface MessageFactory {
-    BytesMessage createBytesMessage(final String topic, final byte[] body);
+    BytesMessage createBytesMessageToTopic(final String topic, final byte[] body);
+
+    BytesMessage createBytesMessageToQueue(final String queue, final byte[] body);
 }

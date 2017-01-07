@@ -42,15 +42,18 @@ public class ProducerApp {
             }
         }));
 
-        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
-        System.out.println("send first message OK");
+        producer.send(producer.createBytesMessageToTopic("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+        System.out.println("send first message to topic OK");
 
-        producer.send(producer.createBytesMessage("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8")))
+        producer.send(producer.createBytesMessageToTopic("HELLO_TOPIC", "HELLO_BODY".getBytes(Charset.forName("UTF-8")))
             .putProperties("KEY1", 100)//
             .putProperties("KEY2", 200L)//
             .putProperties("KEY3", 3.14)//
             .putProperties("KEY4", "value4")//
         );
-        System.out.println("send second message OK");
+        System.out.println("send second message to topic OK");
+
+        producer.send(producer.createBytesMessageToQueue("HELLO_QUEUE", "HELLO_BODY".getBytes(Charset.forName("UTF-8"))));
+        System.out.println("send third message to queue OK");
     }
 }

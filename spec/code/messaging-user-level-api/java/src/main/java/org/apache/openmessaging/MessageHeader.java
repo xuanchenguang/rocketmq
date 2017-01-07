@@ -18,7 +18,9 @@ package org.apache.openmessaging;
 
 public class MessageHeader {
     public static final String MessageId = "MessageId";
+    public static final String Destination = "Destination";
     public static final String Topic = "Topic";
+    public static final String Queue = "Queue";
     public static final String BornTimestamp = "BornTimestamp";
     public static final String BornHost = "BornHost";
     public static final String StoreTimestamp = "StoreTimestamp";
