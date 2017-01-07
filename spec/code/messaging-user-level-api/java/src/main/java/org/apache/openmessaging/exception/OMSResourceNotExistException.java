@@ -14,26 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.openmessaging;
+package org.apache.openmessaging.exception;
 
-import org.apache.openmessaging.exception.OMSResourceNotExistException;
-
-public interface ResourceManager {
-    void createAndUpdateNamespace(final String nsName, KeyValue properties);
-
-    void createAndUpdateTopic(final String topicName, KeyValue properties);
-
-    void createAndUpdateQueue(final String queueName, KeyValue properties);
-
-    void destroyNamespace(final String nsName);
-
-    void destroyTopic(final String topicName);
-
-    void destroyQueue(final String queueName);
-
-    KeyValue getNamespaceProperties(final String nsName) throws OMSResourceNotExistException;
-
-    KeyValue getTopicProperties(final String topicName) throws OMSResourceNotExistException;
-
-    KeyValue getQueueProperties(final String queueName) throws OMSResourceNotExistException;
+public class OMSResourceNotExistException extends OMSException {
 }
