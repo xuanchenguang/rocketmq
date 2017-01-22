@@ -14,34 +14,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.rocketmq.namesrv;
 
-package org.apache.rocketmq.broker;
-
-import org.apache.rocketmq.common.BrokerConfig;
-import org.apache.rocketmq.remoting.netty.NettyClientConfig;
+import org.apache.rocketmq.common.namesrv.NamesrvConfig;
 import org.apache.rocketmq.remoting.netty.NettyServerConfig;
-import org.apache.rocketmq.store.config.MessageStoreConfig;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BrokerControllerTest {
+public class NamesrvControllerTest {
+    private final int RESTART_NUM = 2;
+
     /**
      * Tests if the controller can be properly stopped and started.
      *
      * @throws Exception If fails.
      */
     @Test
-    public void testBrokerRestart() throws Exception {
-        for (int i = 0; i < 2; i++) {
-            BrokerController brokerController = new BrokerController(//
-                new BrokerConfig(), //
-                new NettyServerConfig(), //
-                new NettyClientConfig(), //
-                new MessageStoreConfig());
-            assertThat(brokerController.initialize());
-            brokerController.start();
-            brokerController.shutdown();
+    public void testRestart() throws Exception {
+        for (int i = 0; i < RESTART_NUM; i++) {
+            NamesrvController namesrvController = new NamesrvController(
+                new NamesrvConfig(),
+                new NettyServerConfig()
+            );
+            boolean initResult = namesrvController.initialize();
+            assertThat(initResult).isEqualTo(true);
+            namesrvController.start();
+            namesrvController.shutdown();
         }
     }
+
 }

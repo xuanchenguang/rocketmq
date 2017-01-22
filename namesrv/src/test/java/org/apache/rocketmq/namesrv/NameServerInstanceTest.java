@@ -14,34 +14,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.rocketmq.namesrv;
 
-package org.apache.rocketmq.broker;
-
-import org.apache.rocketmq.common.BrokerConfig;
-import org.apache.rocketmq.remoting.netty.NettyClientConfig;
+import org.apache.rocketmq.common.namesrv.NamesrvConfig;
 import org.apache.rocketmq.remoting.netty.NettyServerConfig;
-import org.apache.rocketmq.store.config.MessageStoreConfig;
-import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BrokerControllerTest {
-    /**
-     * Tests if the controller can be properly stopped and started.
-     *
-     * @throws Exception If fails.
-     */
-    @Test
-    public void testBrokerRestart() throws Exception {
-        for (int i = 0; i < 2; i++) {
-            BrokerController brokerController = new BrokerController(//
-                new BrokerConfig(), //
-                new NettyServerConfig(), //
-                new NettyClientConfig(), //
-                new MessageStoreConfig());
-            assertThat(brokerController.initialize());
-            brokerController.start();
-            brokerController.shutdown();
+public class NameServerInstanceTest {
+    protected NamesrvController nameSrvController = null;
+    protected NettyServerConfig nettyServerConfig = new NettyServerConfig();
+    protected NamesrvConfig namesrvConfig = new NamesrvConfig();
+
+    @Before
+    public void startup() throws Exception {
+        nettyServerConfig.setListenPort(9876);
+        nameSrvController = new NamesrvController(namesrvConfig, nettyServerConfig);
+        boolean initResult = nameSrvController.initialize();
+        assertThat(initResult).isTrue();
+        nameSrvController.start();
+    }
+
+    @After
+    public void shutdown() throws Exception {
+        if (nameSrvController != null) {
+            nameSrvController.shutdown();
         }
+        //maybe need to clean the file store. But we do not suggest deleting anything.
     }
 }
