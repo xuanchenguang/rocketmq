@@ -37,9 +37,7 @@ import org.apache.rocketmq.common.protocol.route.TopicRouteData;
 import org.apache.rocketmq.common.subscription.SubscriptionGroupConfig;
 import org.apache.rocketmq.remoting.exception.*;
 import org.apache.rocketmq.tools.admin.api.MessageTrack;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -55,17 +53,17 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultMQAdminExtTest {
-    private DefaultMQAdminExtImpl defaultMQAdminExtImpl;
-    private MQClientInstance mqClientInstance = MQClientManager.getInstance().getAndCreateMQClientInstance(new ClientConfig());
-    private MQClientAPIImpl mQClientAPIImpl;
-    private Properties properties = new Properties();
-    private TopicList topicList = new TopicList();
-    private TopicRouteData topicRouteData = new TopicRouteData();
-    private KVTable kvTable = new KVTable();
-    private ClusterInfo clusterInfo = new ClusterInfo();
+    private static DefaultMQAdminExtImpl defaultMQAdminExtImpl;
+    private static MQClientInstance mqClientInstance = MQClientManager.getInstance().getAndCreateMQClientInstance(new ClientConfig());
+    private static MQClientAPIImpl mQClientAPIImpl;
+    private static Properties properties = new Properties();
+    private static TopicList topicList = new TopicList();
+    private static TopicRouteData topicRouteData = new TopicRouteData();
+    private static KVTable kvTable = new KVTable();
+    private static ClusterInfo clusterInfo = new ClusterInfo();
 
-    @Before
-    public void init() throws Exception {
+    @BeforeClass
+    public static void init() throws Exception {
         mQClientAPIImpl = mock(MQClientAPIImpl.class);
         DefaultMQAdminExt defaultMQAdminExt = new DefaultMQAdminExt();
         defaultMQAdminExtImpl = new DefaultMQAdminExtImpl(defaultMQAdminExt, 1000);
@@ -196,8 +194,8 @@ public class DefaultMQAdminExtTest {
         when(mQClientAPIImpl.getConsumerRunningInfo(anyString(), anyString(), anyString(), anyBoolean(), anyLong())).thenReturn(consumerRunningInfo);
     }
 
-    @After
-    public void terminate() throws Exception {
+    @AfterClass
+    public static void terminate() throws Exception {
         if (defaultMQAdminExtImpl != null)
             defaultMQAdminExtImpl.shutdown();
     }
